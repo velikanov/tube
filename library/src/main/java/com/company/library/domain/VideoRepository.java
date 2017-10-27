@@ -12,4 +12,6 @@ public interface VideoRepository extends CrudRepository<Video, Integer> {
     Page<Video> findAllByOrderByDurationDesc(Pageable pageable);
     @Query(value = "SELECT * FROM video ORDER BY RAND() LIMIT 0, ?1", nativeQuery = true)
     List<Video> findPagedByRand(int pageSize);
+
+    Video findByExternalId(String externalId);
 }
